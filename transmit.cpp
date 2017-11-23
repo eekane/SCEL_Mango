@@ -4,7 +4,7 @@
 #include "transmit.h"
 
 /* Uncomment for serial debug */
-//#define DEBUG
+#define DEBUG
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Name: clear_Packet                                  *
@@ -41,10 +41,7 @@ void clear_Packet(void) {
  *                                                       *
  *                                                       *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-void construct_Packet(int Gcount) {
-  
-  /* Set Global Count */
-  int i = Gcount;
+void construct_Packet(void) {
 
   #ifdef DEBUG
   Serial.print("Begin:con\n");
