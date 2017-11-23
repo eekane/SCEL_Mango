@@ -8,7 +8,7 @@
 
 /* Set pins */
 SHT1x sht1x(PIN_HUMID_DATA, PIN_HUMID_CLK);   
-Adafruit_BMP280 bmp;                       /* Temperature and Pressure object */
+Adafruit_BMP280 bmp280;                       /* Temperature and Pressure object */
 
 
 /* Initialization */
@@ -27,14 +27,14 @@ long sensorHumidity(void)
 /* Pressure */
 long sensorPressure(void)
 {
-    long value =  bmp.readPressure();
+    long value =  bmp280.readPressure();
     return value; 
 }
 
 /* Temperature Sensor */
 long sensorRoofTemp(void)      
 {
-    long value = bmp.readTemperature();
+    long value = bmp280.readTemperature();
     return value;
 }
 
@@ -61,6 +61,6 @@ long sensorBattery(void)
 /* Times 2 to account for voltage divider, add 700 to account for voltage drop across diode on charging chip. */ 
 long sensorPanelmV(void)
 {
-    long value = 2*analogRead(PIN_SOLAR_V)*5000.0/1023;
+    long value = analogRead(PIN_SOLAR_V)*5000.0/1023;
     return value;
 }
